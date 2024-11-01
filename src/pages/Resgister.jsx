@@ -2,7 +2,7 @@ import Button from "../components/Elements/Button";
 import Input from "../components/Elements/Input/Input";
 import Title from "../components/Fragments/Title";
 
-const RegisterForm = () => {
+const Register = () => {
     return (
         <div>
             <div className="bg-sky-300 w-[600px] px-14 py-36 m-5 flex flex-col gap-y-5 text-black drop-shadow-md rounded-lg">
@@ -21,4 +21,4 @@ const RegisterForm = () => {
         </div>
     );
 };
-export default RegisterForm;
+export default Register;

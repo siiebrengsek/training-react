@@ -1,20 +1,35 @@
-import { useState } from 'react'
 import './index.css'
-// import LoginForm from './pages/LoginForm'
-import RegisterForm from './pages/ResgisterForm'
-import HomePage from './pages/Home'
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import { useEffect } from 'react';
+import Cookies from 'js-cookie';
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (    
-    <div className="bg-white-200 flex justify-center flex-col w-full h-screen items-center text-lg text-red-500 text-black ">
-       {/* <LoginForm /> */}
-       {/* <RegisterForm /> */}
-       <HomePage />
-    </div>       
-  )
-}
+  useEffect(() => {
+    const session = Cookies.get('session');
+    console.log(session)
+    if (session) {
+      Navigate('/')
+    };
+  },[]
+);
+
+  return (
+<RouterProvider router={router} />
+  );
+};
 
 export default App

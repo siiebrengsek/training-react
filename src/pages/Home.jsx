@@ -3,7 +3,7 @@ import SideBar from "../components/Fragments/SideBar";
 
 
 
-const HomePage = () => {
+const Home = () => {
     return (
         <div>
             <SideBar></SideBar>
@@ -13,4 +13,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default Home;
