@@ -1,22 +1,30 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../Elements/Button";
 import SearchBar from "../Elements/Button/Search";
 import Title from "./Title";
+import Cookies from "js-cookie";
 
 const SideBar =()=>{
+    const navigate = useNavigate();
+    const logout = () => {
+        Cookies.remove('session')
+        navigate('/login')
+
+    }
     return (
         <div className="flex h-screen bg-gray-100">
             <div>
                 <aside className="flex h-screen w-64 bg-white shadow-md">
                     <div className="p-4">
                         <h1 className="text-xl font-bold">DASHBOARD
-                        </h1>                    
+                        </h1>
                         <SearchBar type="text" placeholder="search"></SearchBar>
                         <nav>
                             <ul>
                                 <li className="p-4 hover:bg-gray-200"><a href="#">Home</a></li>
                                 <li className="p-4 hover:bg-gray-200"><a href="#">Profile</a></li>
                                 <li className="p-4 hover:bg-gray-200"><a href="#">Settings</a></li>
-                                <li className="p-4 hover:bg-gray-200"><a href="#">Logout</a></li>
+                                <li className="p-4 hover:bg-gray-200"><div className="cursor-pointer" onClick={logout}>Logout</div></li>
                             </ul>
                         </nav>
                     </div>

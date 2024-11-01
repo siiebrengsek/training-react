@@ -20,7 +20,9 @@ const Login = () => {
             alert('Wrong email or password');
         }
     }
-
+    const register = () => {
+        navigate('/register');
+    }
     return (
         <div className="bg-sky-300 w-[600px] px-14 py-36 m-5 flex flex-col gap-y-5 text-black drop-shadow-md rounded-lg">
             <Title />
@@ -40,7 +42,7 @@ const Login = () => {
             />
                 <div className="flex flex-row justify-between">
                     <p className="font-semibold">Dont have {email} account?</p>
-                    <p className="text-blue-500 font-semibold">Register.</p>
+                    <div className="cursor-pointer text-blue-500 font-semibold" onClick={register}>Register.</div>
                 </div>
             <Button onClick={handleLogin}>Login</Button>
         </div>
