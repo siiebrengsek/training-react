@@ -8,12 +8,15 @@ import Cookies from "js-cookie";
 const Login = () => {
 
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+
+    const [form, setForm] = useState({
+        email: '',
+        password: '',
+    })
 
     const handleLogin = () => {
-        if (email === 'asd' && password === 'asd') {
-            Cookies.set('session', email);
+        if (form.email === 'asd' && form.password === 'asd') {
+            Cookies.set('session', form.email);
             navigate('/');
         }
         else {
@@ -23,6 +26,14 @@ const Login = () => {
     const register = () => {
         navigate('/register');
     }
+
+    const handleChange = (formKey) => (e) => {
+        setForm({
+            ...form,
+            [formKey]: e.target.value
+        });
+    }
+
     return (
         <div className="bg-sky-300 w-[600px] px-14 py-36 m-5 flex flex-col gap-y-5 text-black drop-shadow-md rounded-lg">
             <Title />
@@ -30,18 +41,18 @@ const Login = () => {
                 label="Email"
                 type="email"
                 placeholder="Email"
-                value={email}
-                onChange={(e) =>setEmail(e.target.value)}
+                value={form.email}
+                onChange={handleChange('email')}
             />
             <Input
                 label="Password"
                 type="password"
                 placeholder="Password"
-                value={password}
-                onChange={(e) =>setPassword(e.target.value)}
+                value={form.password}
+                onChange={handleChange('password')}
             />
                 <div className="flex flex-row justify-between">
-                    <p className="font-semibold">Dont have {email} account?</p>
+                    <p className="font-semibold">Dont have account?</p>
                     <div className="cursor-pointer text-blue-500 font-semibold" onClick={register}>Register.</div>
                 </div>
             <Button onClick={handleLogin}>Login</Button>

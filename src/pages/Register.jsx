@@ -6,16 +6,19 @@ import { useState } from "react";
 
 const Register = () => {
     const navigate = useNavigate();
+
+    const [frontName, setFronName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [Password, setPassword] = useState("");
+
     const register = () => {
         navigate("/");
     }
     const login = () => {
         navigate("/login");
     }
-    const [frontName, setFronName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
+    
     return (
         <div>
             <div className="bg-sky-300 w-[600px] px-14 py-36 m-5 flex flex-col gap-y-5 text-black drop-shadow-md rounded-lg">
