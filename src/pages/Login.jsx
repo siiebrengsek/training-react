@@ -14,14 +14,38 @@ const Login = () => {
         password: '',
     })
 
-    const handleLogin = () => {
-        if (form.email === 'asd' && form.password === 'asd') {
-            Cookies.set('session', form.email);
-            navigate('/');
+    const handleLogin = async () => {
+        try {
+            const raw = await fetch('https://jsonplaceholder.typicode.com/users');
+            const dataUsers = await raw.json();
+
+            // jika email ada di antara data user
+            const indexUser = dataUsers.findIndex((user) => user.email === form.email);
+            console.log(dataUsers);
+            console.log(indexUser);
+            console.log(dataUsers[indexUser]);
+            
+            if (indexUser > -1) { // jika index user lebih dari -1 atau nemu
+                const user = dataUsers[indexUser];
+                if (form.password === user.username) {
+                    Cookies.set('session', user.id);
+                    navigate('/');
+                } else {
+                    alert('Wrong password');
+                }
+            } else {
+                alert('Wrong email');
+            }
+        } catch (error) {
+            console.log('error ketika mengambil data', error);
         }
-        else {
-            alert('Wrong email or password');
-        }
+        // if (form.email === 'asd' && form.password === 'asd') {
+        //     // Cookies.set('session', form.email);
+        //     // navigate('/');
+        // }
+        // else {
+        //     alert('Wrong email or password');
+        // }
     }
     const register = () => {
         navigate('/register');
