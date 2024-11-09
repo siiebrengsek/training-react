@@ -35,27 +35,29 @@ const Login = () => {
     }
 
     return (
-        <div className="bg-sky-300 w-[600px] px-14 py-36 m-5 flex flex-col gap-y-5 text-black drop-shadow-md rounded-lg">
-            <Title />
-            <Input
-                label="Email"
-                type="email"
-                placeholder="Email"
-                value={form.email}
-                onChange={handleChange('email')}
-            />
-            <Input
-                label="Password"
-                type="password"
-                placeholder="Password"
-                value={form.password}
-                onChange={handleChange('password')}
-            />
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+           <div className="flex flex-col bg-sky-300 w-[600px] px-14 py-36 m-5 gap-y-5 text-black drop-shadow-md rounded-lg">
+                <Title />
+                <Input
+                            label="Email"
+                            type="email"
+                            placeholder="Email"
+                            value={form.email}
+                            onChange={handleChange('email')}
+                />
+                <Input
+                            label="Password"
+                            type="password"
+                            placeholder="Password"
+                            value={form.password}
+                            onChange={handleChange('password')}
+                />
                 <div className="flex flex-row justify-between">
                     <p className="font-semibold">Dont have account?</p>
                     <div className="cursor-pointer text-blue-500 font-semibold" onClick={register}>Register.</div>
-                </div>
-            <Button onClick={handleLogin}>Login</Button>
+                    </div>
+                <Button onClick={handleLogin}>Login</Button>
+            </div>
         </div>
     );
 };

@@ -22,6 +22,7 @@ const router = createBrowserRouter([
 ]);
 
 const privateRoute = ['/' , '/profile'];
+
 function App() {
 
   useEffect(() => {

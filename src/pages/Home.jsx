@@ -7,8 +7,6 @@ const Home = () => {
     return (
         <div>
             <SideBar></SideBar>
-            {/* Konten Utama */}
-            
         </div>
     );
 };

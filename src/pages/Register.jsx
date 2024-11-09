@@ -7,55 +7,64 @@ import { useState } from "react";
 const Register = () => {
     const navigate = useNavigate();
 
-    const [frontName, setFronName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
-
+    const [form , setForm] = useState({
+        frontName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        rePassword: "",
+    })
     const register = () => {
         navigate("/");
     }
     const login = () => {
         navigate("/login");
     }
-    
+    const handleChange = (formKey) => (e) => {
+        setForm({
+            ...form,
+            [formKey]: e.target.value
+        });
+    }
     return (
-        <div>
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="bg-sky-300 w-[600px] px-14 py-36 m-5 flex flex-col gap-y-5 text-black drop-shadow-md rounded-lg">
             <Title />
             <Input
                 label="Front Name"
                 type="text"
-                value={frontName}
+                value={form.frontName}
                 placeholder="front name"
-                onChange={(e) =>setFronName(e.target.value)}
+                onChange={handleChange("frontName")}
             />
             <Input
                 label="Last Name"
                 type="text"
-                value={lastName}
+                value={form.lastName}
                 placeholder="last name"
-                onChange={(e) =>setLastName(e.target.value)}
+                onChange={handleChange("lastName")}
             />
             <Input
                 label="Email"
                 type="email"
-                value={email}
+                value={form.email}
                 placeholder="Email"
-                onChange={(e) =>setEmail(e.target.value)}
+                onChange={handleChange("email")}
             />
             <Input
                 label="Password"
                 type="password"
-                value={Password}
+                value={form.password}
                 placeholder="Password"
-                onChange={(e) =>setPassword(e.target.value)}
+                onChange={handleChange("password")}
             />
             <Input
                 label="re-Password"
                 type="password"
-                value={Password}
-                placeholder="Password" />
+                value={form.rePassword}
+                placeholder="Password" 
+                onChange={handleChange("rePassword")}
+            />
                 <div className="flex flex-row justify-between">
                     <p className="font-semibold">Have account?</p>
                     <div className="cursor-pointer text-blue-500 font-semibold" onClick={login}>Login</div>
