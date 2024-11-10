@@ -1,14 +1,19 @@
 import CardProduct from "../Elements/Input/CardProduct";
 
+
+
+
 const Products = () => {
    return (
-      <div >
+      <div>
       </div>
     );
 };
-const dimsumAyam =()=>{
+
+const dimsumAyam = () => {
     return (
       <div>
+        <CardProduct  />
         <CardProduct>
           <CardProduct.Header image="/images/dimsum-ayam.jpg" ></CardProduct.Header>
           <CardProduct.Body label="Dimsum Ayam">
