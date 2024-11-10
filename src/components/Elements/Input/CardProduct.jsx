@@ -12,7 +12,7 @@ const Header = (props) => {
     const {image} = props;
     return (
         <div>
-            <img src={image}
+            <img className="bg-no-repeat bg-center w-full h-72" src={image}
             alt="dimsum-ayam" />
         </div>
     );
@@ -22,7 +22,7 @@ const Body = (props) => {
     const {children , label} = props;
     return (
         <div>
-           <h5 className="text-xl font-semibold">{label}</h5>
+           <span className="text-xl font-semibold">{label}</span>
            {children}
         </div>
     );

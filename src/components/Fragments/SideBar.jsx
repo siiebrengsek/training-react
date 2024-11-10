@@ -8,11 +8,7 @@ import Products from "./Products";
 import { useEffect, useState } from "react";
 
 const SideBar =()=>{
-    // const products = [
-    //     {id: 1, title: "Dimsum Ayam", price: 'Rp. 3.000'},
-    //     {id: 2, title: "Dimsum Mentai", price: 'Rp. 20.000'},
-    //     {id: 3,  title: "Chili Oil", price: 'Rp. 3.000'}
-    // ];
+
     const navigate = useNavigate();
 
     const [user, setUser] = useState(null);
@@ -56,25 +52,27 @@ const SideBar =()=>{
                     </div>
                 </aside>
             </div>
-            <main className="flex-1 p-6 ">
+            <main className="flex-1 p-6">
                 <div className="flex justify-between items-center">
-                    <Title className="text-lg">Welcome {user.username}</Title>
+                    <Title className="text-lg">Welcome {user?.name}</Title>
                     <Button className="px-4 py-2 bg-blue-500 text-white rounded">Add your cart</Button>
                 </div>
                 <section className="mt-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         <div className="bg-white p-4 shadow rounded hover:bg-gray-200">
-                            <Products />
+                        <a href="#">
+                            <Products.dimsumAyam />
+                        </a>
                         </div>
                         <div className="bg-white p-4 shadow rounded hover:bg-gray-200">
-                            <h3 className="font-bold">Dimsum
-                                Mentai
-                            </h3>
-                            <p>Some content for card 2.</p>
+                            <a href="#">
+                                <Products.dimsumMentai  />
+                            </a>
                         </div>
                         <div className="bg-white p-4 shadow rounded hover:bg-gray-200">
-                            <h3 className="font-bold">Chili Oil</h3>
-                            <p>Some content for card 3.</p>
+                            <a href="#">
+                                <Products.chiliOil />
+                            </a>
                         </div>
                     </div>
                 </section>

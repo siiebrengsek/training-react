@@ -24,7 +24,7 @@ const Login = () => {
             console.log(dataUsers);
             console.log(indexUser);
             console.log(dataUsers[indexUser]);
-            
+
             if (indexUser > -1) { // jika index user lebih dari -1 atau nemu
                 const user = dataUsers[indexUser];
                 if (form.password === user.username) {
